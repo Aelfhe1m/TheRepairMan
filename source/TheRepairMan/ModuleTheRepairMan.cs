@@ -65,9 +65,26 @@ namespace Aelfhe1m.TheRepairMan
         {
             var found = new Repairables();
 
-            found.Antennae = this.vessel.FindPartModulesImplementing<ModuleDeployableAntenna>();
-            found.SolarPanels = this.vessel.FindPartModulesImplementing<ModuleDeployableSolarPanel>();
-            found.Radiators = this.vessel.FindPartModulesImplementing<ModuleDeployableRadiator>();
+            var antennae = this.vessel.FindPartModulesImplementing<ModuleDeployableAntenna>();
+            for (int i = 0; i < antennae.Count; i++)
+            {
+                if (antennae[i].deployState == ModuleDeployablePart.DeployState.BROKEN)
+                    found.Antennae.Add(antennae[i]);
+            }
+
+            var panels =  this.vessel.FindPartModulesImplementing<ModuleDeployableSolarPanel>();
+            for (int i = 0; i < panels.Count; i++)
+            {
+                if (panels[i].deployState == ModuleDeployablePart.DeployState.BROKEN)
+                    found.SolarPanels.Add(panels[i]);
+            }
+
+            var radiators = this.vessel.FindPartModulesImplementing<ModuleDeployableRadiator>();
+            for (int i = 0; i < radiators.Count; i++)
+            {
+                if (radiators[i].deployState == ModuleDeployablePart.DeployState.BROKEN)
+                    found.Radiators.Add(radiators[i]);
+            }
 
             return found;
         }
