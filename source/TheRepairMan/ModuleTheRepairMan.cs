@@ -93,6 +93,11 @@ namespace Aelfhe1m.TheRepairMan
         {
             if (kerbal.experienceLevel > MinAntennaeRepairLevel)
             {
+                for (int i = 0; i < repairables.Antennae.Count; i++)
+                {
+                    repairables.Antennae[i].deployState = ModuleDeployablePart.DeployState.EXTENDED;
+                    // repairables.Antennae[i].Extend();
+                }
                 return repairables.Antennae.Count;
             }
             else
@@ -106,6 +111,11 @@ namespace Aelfhe1m.TheRepairMan
         {
             if (kerbal.experienceLevel > MinSolarPanelRepairLevel)
             {
+                for (int i = 0; i < repairables.SolarPanels.Count; i++)
+                {
+                    repairables.SolarPanels[i].deployState = ModuleDeployablePart.DeployState.EXTENDED;
+                    // repairables.SolarPanels[i].Extend();
+                }
                 return repairables.SolarPanels.Count;
             }
             else
@@ -119,6 +129,11 @@ namespace Aelfhe1m.TheRepairMan
         {
             if (kerbal.experienceLevel > MinRadiatorRepairLevel)
             {
+                for (int i = 0; i < repairables.Radiators.Count; i++)
+                {
+                    repairables.Radiators[i].deployState = ModuleDeployablePart.DeployState.EXTENDED;
+                    // repairables.Radiators[i].Extend();
+                }
                 return repairables.Radiators.Count;
             }
             else
