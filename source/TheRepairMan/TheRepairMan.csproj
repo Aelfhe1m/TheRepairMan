@@ -48,4 +48,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)Aelfhe1m.TheRepairMan.dll"  "$(SolutionDir)\..\GameData\TheRepairMan" /Y
+(robocopy "$(SolutionDir)\..\GameData\TheRepairMan" "$(SolutionDir)\..\..\KSP\GameData\TheRepairMan"   /E /V) ^&amp; exit 0</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>rd /s /q "$(SolutionDir)\..\..\KSP\GameData\TheRepairMan"</PreBuildEvent>
+  </PropertyGroup>
 </Project>
